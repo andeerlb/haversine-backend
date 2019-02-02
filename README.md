@@ -15,5 +15,5 @@ Dependendo da sua configuração pode ser necessario alterar no arquivo
 <b>applications.yml</b> 
 linha em spring.datasource.username
 
-##### Comando
+##### Comando para executar após criar o banco
 mvn spring-boot:run
