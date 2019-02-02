@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS geolocation(
+  id INT NOT NULL AUTO_INCREMENT,
+  latitude NUMERIC(10,6) NULL,
+  longitude NUMERIC(10,6) NULL,
+  PRIMARY KEY(id)
+);
