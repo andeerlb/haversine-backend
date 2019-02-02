@@ -2,6 +2,7 @@
 ### Necessário
 
 maven 3.5.2
+
 Criar um banco mysql na verso 5.7 com o nome: coordinate
 
 Por padrão o usuario e senha para login no banco foram definidos como:
