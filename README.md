@@ -1,10 +1,10 @@
 # haversine-backend<br />
-<p>Projeto usando spring-boot</p>
-### Necessário
+<p>Projeto usando spring-boot</p><br />
 
-maven 3.5.2
+## Necessário
 
-Criar um banco mysql na verso 5.7 com o nome: coordinate
+### maven 3.5.2<br/>
+### Criar um banco mysql na verso 5.7 com o nome: coordinate<br />
 
 Por padrão o usuario e senha para login no banco foram definidos como:
 
@@ -12,9 +12,10 @@ usuario: root
 
 senha: root
 
-Dependendo da sua configuração pode ser necessario alterar no arquivo 
-<b>applications.yml</b> 
-linha em spring.datasource.username
+Dependendo da sua configuração pode ser necessario alterar no arquivo<br />
+<b>applications.yml</b><br /> 
+linha em <br />
+<b>spring.datasource.username</b>
 
 ##### Comando para executar após criar o banco
 mvn spring-boot:run
