@@ -1,5 +1,6 @@
 # haversine-backend<br />
 <p>Projeto usando spring-boot</p><br />
+usar a branch: master
 
 ## Necessário
 
