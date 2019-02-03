@@ -1,10 +1,6 @@
 package br.coordinates.util;
 
-import br.coordinates.model.Collaborator;
 import br.coordinates.model.Geolocation;
-import br.coordinates.model.Store;
-
-import java.math.BigDecimal;
 
 public class CoordinateUtil {
     private static final Integer TOTAL_RADIUS_EARTH = 6371; // 6371KM

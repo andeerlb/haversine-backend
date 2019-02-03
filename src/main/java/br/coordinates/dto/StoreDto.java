@@ -3,13 +3,21 @@ package br.coordinates.dto;
 import br.coordinates.model.Store;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class StoreDto {
+public class StoreDto implements Serializable {
+
+    private static final long serialVersionUID = -7978793236231638505L;
+
     private Integer id;
     private String name;
     private Double latitude;
     private Double longitude;
     private Double distance;
+
+    public StoreDto() {
+    }
 
     public StoreDto(Store store) {
         this.id = store.getId();
