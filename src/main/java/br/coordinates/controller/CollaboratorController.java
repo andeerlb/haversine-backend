@@ -16,10 +16,10 @@ import java.util.List;
 public class CollaboratorController {
 
     @Autowired
-    private CollaboratorService service;
+    public CollaboratorService service;
 
     @PostMapping
-    private ResponseEntity<CollaboratorDto> create(@RequestBody CollaboratorDto collaborator) {
+    public ResponseEntity<CollaboratorDto> create(@RequestBody CollaboratorDto collaborator) {
         return ResponseEntity.ok(service.create(collaborator));
     }
 }

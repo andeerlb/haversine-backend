@@ -23,8 +23,9 @@ public class PossibleRouterController {
     public ResponseEntity<List<PossibleCoordinateDto>> possibleRouter(@RequestParam("radius") Double radius,
                                                                       @RequestParam("groupBy") String groupBy,
                                                                       @RequestParam("idlbeCollaborator") boolean idlbeCollaborator,
-                                                                      @RequestParam("outOfReachByCollaborator") boolean outOfReachByCollaborator) {
-        return ResponseEntity.ok(service.possibleRouter(radius, groupBy, idlbeCollaborator, outOfReachByCollaborator));
+                                                                      @RequestParam("outOfReachByCollaborator") boolean outOfReachByCollaborator,
+                                                                      @RequestParam(name = "city", required = false) Integer cityId) {
+        return ResponseEntity.ok(service.possibleRouter(radius, groupBy, idlbeCollaborator, outOfReachByCollaborator, cityId));
     }
 
     @GetMapping("/impossiblewithidlecollaborators")

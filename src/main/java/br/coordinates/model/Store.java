@@ -22,8 +22,20 @@ public class Store implements Serializable {
     private Geolocation geolocation;
 
     @ManyToOne
+    @JoinColumn(name = "city_id")
+    private Geolocation city;
+
+    @ManyToOne
     @JoinColumn(name = "collaborator_id")
     private Collaborator collaborator;
+
+    public Geolocation getCity() {
+        return city;
+    }
+
+    public void setCity(Geolocation city) {
+        this.city = city;
+    }
 
     public Geolocation getGeolocation() {
         return geolocation;
