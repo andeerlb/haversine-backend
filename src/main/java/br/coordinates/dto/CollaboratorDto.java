@@ -3,13 +3,21 @@ package br.coordinates.dto;
 import br.coordinates.model.Collaborator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CollaboratorDto {
+public class CollaboratorDto implements Serializable {
+
+    private static final long serialVersionUID = 6378598785630704931L;
+
     private Integer id;
     private String name;
     private Double latitude;
     private Double longitude;
     private Double distance;
+
+    public CollaboratorDto() {
+    }
 
     public CollaboratorDto(Collaborator col){
         this.id = col.getId();
