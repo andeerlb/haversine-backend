@@ -26,6 +26,7 @@ public class CollaboratorDto implements Serializable {
         this.name = col.getName();
         this.latitude = col.getGeolocation().getLatitude().doubleValue();
         this.longitude = col.getGeolocation().getLongitude().doubleValue();
+        this.cityId = col.getCity().getId();
     }
 
     public String getCityName() {

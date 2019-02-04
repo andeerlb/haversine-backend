@@ -21,8 +21,20 @@ public class Collaborator implements Serializable {
     @JoinColumn(name = "geolocation_id")
     private Geolocation geolocation;
 
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
     @OneToMany(mappedBy = "collaborator", cascade = CascadeType.ALL)
     private List<Store> store;
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 
     public List<Store> getStore() {
         return store;

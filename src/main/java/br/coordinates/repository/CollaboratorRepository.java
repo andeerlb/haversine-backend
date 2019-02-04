@@ -17,4 +17,7 @@ public interface CollaboratorRepository extends JpaRepository<Collaborator, Inte
 
     @Query("SELECT new br.coordinates.dto.CollaboratorDto(c) FROM Collaborator c WHERE c.id = :id")
     CollaboratorDto getOneDto(@Param("id") Integer id);
+
+    @Query("SELECT c FROM Collaborator c WHERE (c.city.id = :cityId or :cityId IS NULL)")
+    List<Collaborator> findAllByCity(@Param("cityId") Integer cityId);
 }

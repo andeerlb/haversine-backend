@@ -4,9 +4,11 @@ import br.coordinates.dto.CollaboratorDto;
 import br.coordinates.dto.ImPossibleCoordinateDto;
 import br.coordinates.dto.PossibleCoordinateDto;
 import br.coordinates.dto.StoreDto;
+import br.coordinates.model.City;
 import br.coordinates.model.Collaborator;
 import br.coordinates.model.Geolocation;
 import br.coordinates.model.Store;
+import br.coordinates.repository.CityRepository;
 import br.coordinates.repository.CollaboratorRepository;
 import br.coordinates.repository.GeolocationRepository;
 import br.coordinates.repository.StoreRepository;
@@ -29,6 +31,9 @@ public class CollaboratorService {
     @Autowired
     private GeolocationRepository geolocationRepository;
 
+    @Autowired
+    private CityRepository cityRepository;
+
     public CollaboratorDto create(CollaboratorDto collaboratorDto) {
         Geolocation geo = new Geolocation();
         geo.setLatitude(new BigDecimal(collaboratorDto.getLatitude()));
@@ -36,6 +41,14 @@ public class CollaboratorService {
         Geolocation geoSaved = geolocationRepository.save(geo);
 
         Collaborator col = new Collaborator();
+
+        if(collaboratorDto.getCityId() != null){
+            City city = cityRepository.getOne(collaboratorDto.getCityId());
+            if(city != null){
+                col.setCity(city);
+            }
+        }
+
         col.setId(collaboratorDto.getId());
         col.setName(collaboratorDto.getName());
         col.setGeolocation(geoSaved);

@@ -27,7 +27,7 @@ public class PossibleRouterService {
     private StoreRepository storeRepository;
 
     public List<PossibleCoordinateDto> possibleRouter(Double radius, String groupBy, boolean idlbeCollaborator, boolean outOfReachByCollaborator, Integer cityId) {
-        List<Collaborator> collaborators = collaboratorRepository.findAll();
+        List<Collaborator> collaborators = collaboratorRepository.findAllByCity(cityId);
         List<Store> stores = storeRepository.findAllByCity(cityId);
 
         List<PossibleCoordinateDto> possibleCoordinateDto = new ArrayList<>();
