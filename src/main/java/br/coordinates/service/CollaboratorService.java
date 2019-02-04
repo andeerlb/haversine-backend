@@ -36,9 +36,38 @@ public class CollaboratorService {
         Geolocation geoSaved = geolocationRepository.save(geo);
 
         Collaborator col = new Collaborator();
+        col.setId(collaboratorDto.getId());
         col.setName(collaboratorDto.getName());
         col.setGeolocation(geoSaved);
         Collaborator colSaved = repo.save(col);
         return new CollaboratorDto(colSaved);
+    }
+
+    public CollaboratorDto update(Integer id, CollaboratorDto collaboratorDto){
+        CollaboratorDto col = this.getOne(id);
+
+        if(col == null){
+            throw new RuntimeException("Colaborador não encontrado");
+        }
+        return this.create(collaboratorDto);
+    }
+
+    public List<CollaboratorDto> getAll() {
+        return this.repo.getAllDto();
+    }
+
+    public CollaboratorDto getOne(Integer id){
+        return repo.getOneDto(id);
+    }
+
+    public Boolean delete(Integer id) {
+        Collaborator coll = repo.getOne(id);
+
+        if(coll == null) {
+            return false;
+        }
+
+        repo.delete(coll);
+        return true;
     }
 }
