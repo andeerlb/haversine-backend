@@ -23,7 +23,31 @@ public class CityService {
         return repo.save(city);
     }
 
+    public City update(Integer id, City city){
+        City c = this.getOne(id);
+
+        if(c == null){
+            throw new RuntimeException("Cidade não encontrada.");
+        }
+        return this.create(city);
+    }
+
     public List<City> getAll() {
         return repo.findAll();
+    }
+
+    public City getOne(Integer id){
+        return repo.getOne(id);
+    }
+
+    public Boolean delete(Integer id) {
+        City c = repo.getOne(id);
+
+        if(c == null) {
+            return false;
+        }
+
+        repo.delete(c);
+        return true;
     }
 }
