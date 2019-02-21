@@ -15,7 +15,7 @@ public class StoreDto implements Serializable {
     private Double latitude;
     private Double longitude;
     private Double distance;
-    private Integer city;
+    private Integer cityId;
 
     public StoreDto() {
     }
@@ -25,14 +25,15 @@ public class StoreDto implements Serializable {
         this.name = store.getName();
         this.latitude = store.getGeolocation().getLatitude().doubleValue();
         this.longitude = store.getGeolocation().getLongitude().doubleValue();
+        this.cityId = store.getCity().getId();
     }
 
-    public Integer getCity() {
-        return city;
+    public Integer getCityId() {
+        return cityId;
     }
 
-    public void setCity(Integer city) {
-        this.city = city;
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
     }
 
     public Double getLatitude() {

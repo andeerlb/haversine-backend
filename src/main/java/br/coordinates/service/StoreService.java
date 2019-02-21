@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class StoreService {
@@ -33,7 +34,7 @@ public class StoreService {
         geo.setLongitude(new BigDecimal(store.getLongitude()));
         Geolocation geoSaved = geolocationRepository.save(geo);
 
-        City city = cityRepository.getOne(store.getCity());
+        City city = cityRepository.getOne(store.getCityId());
 
         Store stor = new Store();
         stor.setName(store.getName());
@@ -41,5 +42,33 @@ public class StoreService {
         stor.setCity(city);
         Store storSaved = repo.save(stor);
         return new StoreDto(storSaved);
+    }
+
+    public List<StoreDto> getAll() {
+        return repo.findAllDto();
+    }
+
+    public StoreDto getOne(Integer id){
+        return repo.getOneDto(id);
+    }
+
+    public Boolean delete(Integer id) {
+        Store s = repo.getOne(id);
+
+        if(s == null) {
+            return false;
+        }
+
+        repo.delete(s);
+        return true;
+    }
+
+    public StoreDto update(Integer id, StoreDto storeDto){
+        StoreDto st = this.getOne(id);
+
+        if(st == null){
+            throw new RuntimeException("Estabelecimento não encontrado");
+        }
+        return this.create(st);
     }
 }
