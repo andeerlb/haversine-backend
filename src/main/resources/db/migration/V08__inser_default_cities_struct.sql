@@ -1,1 +1,0 @@
-INSERT INTO city(name) VALUES('Grande Florianópolis');

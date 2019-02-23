@@ -1,1 +1,0 @@
-ALTER TABLE collaborator ADD COLUMN city_id INT NOT NULL;

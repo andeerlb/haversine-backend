@@ -1,1 +1,0 @@
-UPDATE collaborator SET city_id = 1;

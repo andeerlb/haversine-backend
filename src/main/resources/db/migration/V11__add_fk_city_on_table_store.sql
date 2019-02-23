@@ -1,1 +1,0 @@
-ALTER TABLE store ADD CONSTRAINT fk_store_city FOREIGN KEY(city_id) REFERENCES city(id);

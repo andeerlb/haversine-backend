@@ -1,1 +1,0 @@
-UPDATE store SET city_id = 1;

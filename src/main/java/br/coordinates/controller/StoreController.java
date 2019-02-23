@@ -1,6 +1,5 @@
 package br.coordinates.controller;
 
-import br.coordinates.dto.CollaboratorDto;
 import br.coordinates.dto.StoreDto;
 import br.coordinates.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
