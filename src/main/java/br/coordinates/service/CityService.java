@@ -8,6 +8,8 @@ import br.coordinates.repository.CityRepository;
 import br.coordinates.repository.CollaboratorRepository;
 import br.coordinates.repository.GeolocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -32,8 +34,8 @@ public class CityService {
         return this.create(city);
     }
 
-    public List<City> getAll() {
-        return repo.findAll();
+    public Page<City> getAll(Pageable pageable) {
+        return repo.findAll(pageable);
     }
 
     public City getOne(Integer id){
