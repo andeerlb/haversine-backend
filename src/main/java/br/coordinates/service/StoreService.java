@@ -11,6 +11,8 @@ import br.coordinates.repository.CollaboratorRepository;
 import br.coordinates.repository.GeolocationRepository;
 import br.coordinates.repository.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -44,8 +46,8 @@ public class StoreService {
         return new StoreDto(storSaved);
     }
 
-    public List<StoreDto> getAll() {
-        return repo.findAllDto();
+    public Page<StoreDto> getAll(Pageable pageable) {
+        return repo.findAllDto(pageable);
     }
 
     public StoreDto getOne(Integer id){
